@@ -1,6 +1,6 @@
-FROM python:3.9
+FROM python:3.9-slim
 RUN mkdir /app
 COPY ./backend /app
 WORKDIR /app
 RUN pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt

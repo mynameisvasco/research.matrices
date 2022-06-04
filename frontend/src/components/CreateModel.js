@@ -49,7 +49,7 @@ class CreateModel extends React.Component {
   sendTrainingInfo = () => {
     this.setState({ is_started: true });
     let formData = new FormData();
-    let url_train = "http://deti-iforal.ua.pt:5000/api/htr/training";
+    let url_train = "http://deti-iforal.ua.pt:5035/api/htr/training";
 
     formData.append("model_name", this.state.model_fi.Name);
     formData.append("epochs", this.state.model_fi.Epochs);

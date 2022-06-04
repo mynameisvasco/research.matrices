@@ -18,7 +18,7 @@ export default class Profile extends React.Component {
 
   deleteDataset = (event, index) => {
     const resource =
-      "http://deti-iforal.ua.pt:5000/api/datasets/" +
+      "http://deti-iforal.ua.pt:5035/api/datasets/" +
       this.state.list_dataset[index].id;
     axios.delete(resource, { headers: {} }).then((response) => {
       this.setState({
@@ -51,7 +51,7 @@ export default class Profile extends React.Component {
         text_response.push(new_text);
       }
       let url_img =
-        "http://deti-iforal.ua.pt:5000/api/datasets/getimage/" +
+        "http://deti-iforal.ua.pt:5035/api/datasets/getimage/" +
         JSON.data._id["$oid"] +
         "/" +
         curr_image.image["$oid"];

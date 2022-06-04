@@ -290,7 +290,7 @@ class AnnoNEW extends React.Component {
     let labels = this.createAnnotationsMongo(this.state.files);
     form_data.append("annotations", JSON.stringify(labels));
 
-    let url = "http://deti-iforal.ua.pt:5000/api/dataset-creator";
+    let url = "http://deti-iforal.ua.pt:5035/api/dataset-creator";
     axios
       .post(url, form_data, {
         headers: {
@@ -307,7 +307,7 @@ class AnnoNEW extends React.Component {
     form_data.append("annotations", JSON.stringify(labels));
 
     let url =
-      "http://deti-iforal.ua.pt:5000/api/datasets/" + this.state.dataset_id;
+      "http://deti-iforal.ua.pt:5035/api/datasets/" + this.state.dataset_id;
     axios
       .put(url, form_data, {
         headers: {
@@ -332,7 +332,7 @@ class AnnoNEW extends React.Component {
     let labels = this.createAnnotationsMongo(this.state.files);
     form_data.append("annotations", JSON.stringify(labels));
 
-    let url = "http://deti-iforal.ua.pt:5000/api/datasets";
+    let url = "http://deti-iforal.ua.pt:5035/api/datasets";
     axios
       .post(url, form_data, {
         headers: {

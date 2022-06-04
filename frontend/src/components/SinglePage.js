@@ -245,7 +245,7 @@ class SinglePage extends React.Component {
     form_data.append("boxes", JSON.stringify(this.state.bounding_boxes));
     let url_predict = "http://deti-iforal.ua.pt:5025/ocr";
     //let url_predict = 'http://deti-iforal.ua.pt:5025/predict-flor'
-    //let url_predict = 'http://deti-iforal.ua.pt:5000/predict'
+    //let url_predict = 'http://deti-iforal.ua.pt:5035/predict'
     axios
       .post(url_predict, form_data, {
         headers: {
