@@ -3,9 +3,8 @@ RUN mkdir /app
 COPY ./frontend/package.json /app
 WORKDIR /app
 RUN npm i
-RUN npm run build
-
 COPY ./frontend /app
+RUN npm run build
 
 FROM nginx
 COPY --from=builder /app/build /usr/share/nginx/html

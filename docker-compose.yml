@@ -11,6 +11,7 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=admin
   ocr:
+    platform: linux/x86_64
     image: "ocr"
     build:
       context: .
@@ -18,6 +19,7 @@ services:
     ports:
       - 5025:5025
   library:
+    platform: linux/x86_64
     image: "library"
     build:
       context: .
@@ -25,8 +27,9 @@ services:
     ports:
       - 5035:5035
     environment:
-      MONGODB_URL: mongodb+srv://admin:admin@localhost/matrices
+      MONGODB_URL: mongodb://admin:admin@localhost/matrices
   text_detector:
+    platform: linux/x86_64
     image: "text_detector"
     build:
       context: .
