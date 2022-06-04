@@ -1,4 +1,4 @@
-FROM python:3.9-alpine AS builder
+FROM python:3.9-slim AS builder
 RUN mkdir /app
 WORKDIR /app
 RUN python -m venv .venv && .venv/bin/pip install --no-cache-dir -U pip setuptools
