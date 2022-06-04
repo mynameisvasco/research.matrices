@@ -1,3 +1,5 @@
+#!/bin/bash
+
 all() {
 docker build -t frontend -f dockerfiles/frontend.dockerfile .
 docker build -t base --platform linux/x86_64 -f dockerfiles/base.dockerfile .
