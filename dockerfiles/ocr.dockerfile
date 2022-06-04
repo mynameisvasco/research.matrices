@@ -1,3 +1,3 @@
 FROM base
 EXPOSE 5025
-CMD ["python", "ocr_service/server.py"]
+CMD ["python3", "ocr_service/server.py"]

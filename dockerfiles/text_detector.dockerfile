@@ -1,3 +1,3 @@
 FROM base
 EXPOSE 5015
-CMD ["python", "text_detector/server.py"]
+CMD ["python3", "text_detector/server.py"]
