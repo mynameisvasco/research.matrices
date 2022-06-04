@@ -1,10 +1,11 @@
-FROM node:alpine
-EXPOSE 3000
+FROM node:16 as build
 COPY ./frontend /app
 WORKDIR /app
 RUN npm i
-CMD ["npm", "run", "start"]
+RUN npm run build
 
-FROM nginx:alpine
+FROM nginx
+COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+CMD ["nginx", "-g", "daemon off;"]

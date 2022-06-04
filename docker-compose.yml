@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - ~/apps/mongo:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+  ocr:
+    build:
+      context: .
+      dockerfile: dockerfiles/ocr.dockerfile
+    ports:
+      - 5025:5025
+  library:
+    build:
+      context: .
+      dockerfile: dockerfiles/library.dockerfile
+    ports:
+      - 5000:5000
+    environment:
+      MONGODB_URL: mongodb+srv://admin:admin@localhost/matrices
+  text_detector:
+    build:
+      context: .
+      dockerfile: dockerfiles/text_detector.dockerfile
+    ports:
+      - 5015:5015
+  frontend:
+    image: frontend
+    build:
+      context: .
+      dockerfile: dockerfiles/frontend.dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 80:80
