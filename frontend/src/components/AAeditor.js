@@ -176,7 +176,7 @@ class MultiPageEditor extends React.Component {
         this.setState({loading:true});
         let form_data = new FormData();
         this.state.files.forEach(f => form_data.append(f.filename, f.file))
-        let url = 'http://localhost:5015/mybiros/api/v1/text-detection/corpus/';
+        let url = 'http://deti-iforal.ua.pt:5015/mybiros/api/v1/text-detection/corpus/';
         axios.post(url, form_data, {
             headers: {
             'content-type': 'multipart/form-data',
@@ -204,7 +204,7 @@ class MultiPageEditor extends React.Component {
         let form_data = new FormData();
         form_data.append('file', this.state.files[i].file);
         form_data.append('boxes', JSON.stringify(this.state.files[i].boxes))
-        let url_predict = 'http://localhost:5025/ocr'
+        let url_predict = 'http://deti-iforal.ua.pt:5025/ocr'
         axios.post(url_predict, form_data, {
           headers: {
             'content-type': 'multipart/form-data',
@@ -279,7 +279,7 @@ class MultiPageEditor extends React.Component {
         let labels = this.createAnnotationsMongo(this.state.files)
         form_data.append('annotations', JSON.stringify(labels))
 
-        let url = 'http://localhost:5000/api/dataset-creator';
+        let url = 'http://deti-iforal.ua.pt:5000/api/dataset-creator';
         axios.post(url, form_data, {
             headers: {
                 'content-type': 'multipart/form-data',
