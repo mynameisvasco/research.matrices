@@ -1,9 +1,10 @@
 FROM node:16 as builder
 RUN mkdir /app
-COPY ./frontend /app
+COPY ./frontend/package.json /app
 WORKDIR /app
 RUN npm i
 RUN npm run build
+COPY ./frontend /app
 
 FROM nginx
 COPY --from=build /app/build /usr/share/nginx/html
