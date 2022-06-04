@@ -1,6 +1,7 @@
 FROM node:alpine
 EXPOSE 3000
 COPY ./frontend /app
+WORKDIR /app
 RUN npm i
 CMD ["npm", "run", "start"]
 
