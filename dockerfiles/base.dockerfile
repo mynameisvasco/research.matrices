@@ -10,4 +10,3 @@ WORKDIR /app
 COPY --from=builder /app /app
 COPY ./backend /app
 ENV PATH="/app/.venv/bin:$PATH"
-CMD ["python", "app.py"]
